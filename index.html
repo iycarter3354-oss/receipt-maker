@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>かんたん領収書メーカー | 無料で領収書をすぐ作成・印刷</title>
+  <meta name="description" content="フリーランス・個人事業主向けの無料領収書メーカー。入力するだけで領収書が完成。PDF保存もかんたん。" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <h1>🧾 かんたん領収書メーカー</h1>
+    <p>フリーランス・個人事業主向け｜無料・登録不要</p>
+  </header>
+
+  <div class="ad-placeholder">＜広告スペース：Google AdSense コードをここに貼り付け＞</div>
+
+  <main class="container">
+    <div class="layout">
+
+      <section class="form-panel">
+        <h2>① 情報を入力</h2>
+
+        <fieldset>
+          <legend>発行者（あなた）</legend>
+          <label>氏名 / 屋号
+            <input id="senderName" type="text" placeholder="山田 太郎" />
+          </label>
+          <label>住所
+            <input id="senderAddress" type="text" placeholder="東京都渋谷区〇〇1-2-3" />
+          </label>
+          <label>電話番号
+            <input id="senderPhone" type="text" placeholder="090-0000-0000" />
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>領収情報</legend>
+          <label>宛名
+            <input id="clientName" type="text" placeholder="株式会社〇〇 御中" />
+          </label>
+          <label>発行日
+            <input id="issueDate" type="date" />
+          </label>
+          <label>領収書番号
+            <input id="receiptNo" type="text" placeholder="REC-2026-001" />
+          </label>
+          <label>但し書き
+            <input id="description" type="text" placeholder="〇〇作業代として" />
+          </label>
+          <label>金額（税抜）
+            <input id="amount" type="number" min="0" value="0" />
+          </label>
+          <label>消費税率
+            <select id="taxRate">
+              <option value="0.10">10%</option>
+              <option value="0.08">8%（軽減税率）</option>
+              <option value="0">非課税</option>
+            </select>
+          </label>
+        </fieldset>
+
+        <button type="button" id="printBtn" class="btn-primary">🖨️ 印刷 / PDF保存</button>
+      </section>
+
+      <section class="preview-panel" id="previewPanel">
+        <h2 class="no-print">② プレビュー（リアルタイム更新）</h2>
+
+        <div class="invoice receipt" id="invoicePreview">
+          <div class="invoice-header">
+            <h2>領 収 書</h2>
+            <table class="meta-table">
+              <tr><td>領収書番号</td><td id="p-receiptNo">—</td></tr>
+              <tr><td>発行日</td><td id="p-issueDate">—</td></tr>
+            </table>
+          </div>
+
+          <div class="receipt-client">
+            <p id="p-clientName" class="client-name">—</p>
+            <p>様</p>
+          </div>
+
+          <div class="total-box">
+            <span>領収金額</span>
+            <span id="p-grandTotal" class="grand-total">¥0</span>
+          </div>
+
+          <div class="receipt-description">
+            <span class="desc-label">但し</span>
+            <span id="p-description">—</span>
+          </div>
+
+          <div class="subtotals">
+            <div class="subtotal-row">
+              <span>小計</span>
+              <span id="p-subtotal">¥0</span>
+            </div>
+            <div class="subtotal-row">
+              <span id="p-taxLabel">消費税（10%）</span>
+              <span id="p-tax">¥0</span>
+            </div>
+            <div class="subtotal-row total-row">
+              <span>合計</span>
+              <span id="p-total">¥0</span>
+            </div>
+          </div>
+
+          <div class="sender-block-receipt">
+            <p id="p-senderName" class="sender-name">—</p>
+            <p id="p-senderAddress">—</p>
+            <p id="p-senderPhone">—</p>
+          </div>
+
+          <p class="invoice-note">上記の金額を領収いたしました。</p>
+        </div>
+      </section>
+    </div>
+
+    <aside class="affiliate-section no-print">
+      <h3>💡 領収書・経費管理をもっとかんたんに</h3>
+      <div class="affiliate-cards">
+        <div class="affiliate-card">
+          <strong>freee 会計</strong>
+          <p>確定申告まで自動化。フリーランスに人気No.1の会計ソフト。</p>
+          <a href="#" class="btn-affiliate">無料で試す →</a>
+        </div>
+        <div class="affiliate-card">
+          <strong>マネーフォワード クラウド</strong>
+          <p>領収書・経費を一元管理。インボイス対応済み。</p>
+          <a href="https://px.a8.net/svt/ejp?a8mat=4B1THS+8XI3G2+4JGQ+BWVTE" rel="nofollow" class="btn-affiliate">無料で試す →</a>
+          <img border="0" width="1" height="1" src="https://www11.a8.net/0.gif?a8mat=4B1THS+8XI3G2+4JGQ+BWVTE" alt="" />
+        </div>
+      </div>
+    </aside>
+
+    <aside class="upsell-section no-print">
+      <h3>🚀 もっと便利に使いたい方へ（プロ版・近日公開）</h3>
+      <ul>
+        <li>✅ 会社ロゴを領収書に追加</li>
+        <li>✅ テンプレートを保存・再利用</li>
+        <li>✅ 過去の領収書を一覧管理</li>
+      </ul>
+      <div class="email-capture">
+        <input type="email" id="proEmail" placeholder="メールアドレスを入力" />
+        <button type="button" id="proSignupBtn" class="btn-primary">プロ版の案内を受け取る</button>
+      </div>
+      <p id="signupMessage" class="signup-message"></p>
+    </aside>
+  </main>
+
+  <footer class="site-footer no-print">
+    <p>© 2026 かんたん領収書メーカー | 無料ツール</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
